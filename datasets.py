@@ -42,6 +42,7 @@ class CUBDataset(Dataset):
             image = self.transforms(image)
         return torch.tensor(img_id), image, torch.tensor(class_id)
 
+
 # Train
 augs_train = T.Compose([
     T.Resize((256, 256), Image.BILINEAR),
@@ -50,6 +51,7 @@ augs_train = T.Compose([
     T.ToTensor(),
     T.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
 ])
+
 # Test
 augs_test = T.Compose([
     T.Resize((256, 256), Image.BILINEAR),
